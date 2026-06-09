@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
   try {
     const payload = {
-      from: 'AYETEA Phone Discovery <notifications@aye-tea.com>', // Note: Must verify domain on Resend
+      from: 'AYETEA Phone Discovery <onboarding@resend.dev>',
       to: [to],
       subject: subject,
       html: html,
