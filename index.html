@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AYETEA Phone Discovery & Workflow Portal</title>
+  <!-- Google Fonts Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Remix Icons for modern look -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <!-- html2pdf.js for client-side PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <!-- SheetJS for client-side Excel workbook generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body class="theme-dark">
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <i class="ri-phone-find-line"></i>
+        </div>
+        <div class="logo-text">
+          <h1>AYETEA</h1>
+          <span>Phone System Discovery</span>
+        </div>
+      </div>
+      
+      <!-- Nav Tabs -->
+      <nav class="app-nav">
+        <button id="tab-client" class="nav-tab active" data-view="client">
+          <i class="ri-survey-line"></i>
+          <span>Client Discovery Form</span>
+        </button>
+        <button id="tab-admin" class="nav-tab" data-view="admin">
+          <i class="ri-dashboard-3-line"></i>
+          <span>AYETEA Workspace</span>
+          <span class="badge" id="admin-badge-count">0</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="app-main">
+      <!-- Client Wizard View -->
+      <section id="view-client" class="view-section active">
+        <div class="intro-card glass">
+          <div class="intro-content">
+            <h2>Phone System Discovery</h2>
+            <p>AYETEA uses this discovery form to gather the information needed to prepare your business phone system setup. Please provide as much detail as you can. If you are unsure about a section, leave a note and we will review it with you.</p>
+            <p class="highlight-text"><i class="ri-information-line"></i> Completing this form before the project begins helps reduce discovery time, avoid unnecessary meetings, and keep implementation costs efficient.</p>
+          </div>
+          <div class="intro-meta">
+            <div class="meta-item">
+              <i class="ri-time-line"></i>
+              <div>
+                <h4>Time to complete</h4>
+                <p>~10-15 minutes</p>
+              </div>
+            </div>
+            <div class="meta-item">
+              <i class="ri-shield-check-line"></i>
+              <div>
+                <h4>Secure Intake</h4>
+                <p>Ooma deployment prep</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wizard form container -->
+        <div id="wizard-container"></div>
+      </section>
+
+      <!-- Admin Portal View -->
+      <section id="view-admin" class="view-section">
+        <!-- Stats Summary Banner -->
+        <div id="stats-container" class="stats-grid"></div>
+
+        <!-- Global Settings Banner (Admin only) -->
+        <div class="settings-banner glass" style="margin-bottom: 2rem; border: 1px dashed rgba(6, 182, 212, 0.25); display: flex; flex-direction: column; gap: 1rem; padding: 1.5rem;">
+          <!-- Section 1 Header & Intake Email -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem;">
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+              <i class="ri-mail-settings-line" style="color:var(--secondary); font-size:1.3rem;"></i>
+              <span style="font-weight:700; font-size:0.9rem;">Default Intake Target Email:</span>
+            </div>
+            <div style="display:flex; gap:0.5rem; align-items:center;">
+              <input type="email" id="global-config-email" style="padding:0.45rem 0.8rem; border-radius:var(--radius-sm); width:240px; font-size:0.85rem;" placeholder="support@aye-tea.com">
+            </div>
+          </div>
+
+          <!-- Section 2: Standards Configuration -->
+          <div>
+            <h4 style="font-size:0.85rem; font-weight:700; color:var(--secondary); margin-bottom:0.75rem; display:flex; align-items:center; gap:0.3rem; margin-top: 0;">
+              <i class="ri-equalizer-line"></i> Ooma Numbering & Extension Standards Configuration
+            </h4>
+            <div class="form-grid-3" style="gap:1rem;">
+              <div class="form-group" style="margin-bottom:0;">
+                <label style="font-size:0.75rem;">Main Receptionist</label>
+                <input type="number" id="cfg-receptionist" value="1000" style="padding:0.4rem 0.6rem; font-size:0.85rem;">
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label style="font-size:0.75rem;">Main Queue</label>
+                <input type="number" id="cfg-queue" value="1001" style="padding:0.4rem 0.6rem; font-size:0.85rem;">
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label style="font-size:0.75rem;">Conference Server</label>
+                <input type="number" id="cfg-conference" value="1002" style="padding:0.4rem 0.6rem; font-size:0.85rem;">
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label style="font-size:0.75rem;">Shared Voicemail</label>
+                <input type="number" id="cfg-voicemail" value="1003" style="padding:0.4rem 0.6rem; font-size:0.85rem;">
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label style="font-size:0.75rem;">AYETEA Support</label>
+                <input type="number" id="cfg-support" value="6666" style="padding:0.4rem 0.6rem; font-size:0.85rem;">
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label style="font-size:0.75rem;">User Ext Start</label>
+                <input type="number" id="cfg-userstart" value="1100" style="padding:0.4rem 0.6rem; font-size:0.85rem;">
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label style="font-size:0.75rem;">User Block Increment</label>
+                <input type="number" id="cfg-increment" value="100" style="padding:0.4rem 0.6rem; font-size:0.85rem;">
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label style="font-size:0.75rem;">Receptionist Offset</label>
+                <input type="number" id="cfg-offset" value="1" style="padding:0.4rem 0.6rem; font-size:0.85rem;">
+              </div>
+              <div style="display:flex; align-items:flex-end;">
+                <button type="button" class="btn-primary" id="save-config-email-btn" style="width:100%; padding:0.45rem 1rem; font-size:0.8rem; background:linear-gradient(135deg, var(--secondary), var(--primary)); justify-content:center;">
+                  <i class="ri-save-line"></i> Save Settings
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Admin Kanban Board -->
+        <div id="admin-board-container" class="admin-board-wrapper"></div>
+      </section>
+    </main>
+
+    <!-- Detail Drawer (Admin) -->
+    <div id="detail-drawer" class="drawer">
+      <div class="drawer-overlay" id="drawer-overlay"></div>
+      <div class="drawer-content glass">
+        <!-- Content injected dynamically -->
+        <div id="drawer-body"></div>
+      </div>
+    </div>
+
+    <!-- Toast Notification System -->
+    <div id="toast-container" class="toast-container"></div>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
