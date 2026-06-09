@@ -41,6 +41,8 @@ export function generatePDF(proj) {
   const element = document.createElement('div');
   element.style.padding = '30px';
   element.style.color = '#1e293b';
+  element.style.backgroundColor = '#ffffff';
+  element.style.width = '800px';
   element.style.fontFamily = 'system-ui, -apple-system, sans-serif';
   element.style.fontSize = '12px';
   element.style.lineHeight = '1.5';
@@ -283,11 +285,8 @@ export function generatePDF(proj) {
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
 
-  // Trigger pdf save with body append to ensure correct rendering coordinates
-  document.body.appendChild(element);
-  return html2pdf().set(opt).from(element).save().then(() => {
-    element.remove();
-  });
+  // Trigger pdf save (rendering in-memory avoids layout conflicts)
+  return html2pdf().set(opt).from(element).save();
 }
 
 export function generatePDFBlob(proj) {
@@ -330,6 +329,8 @@ export function generatePDFBlob(proj) {
   const element = document.createElement('div');
   element.style.padding = '30px';
   element.style.color = '#1e293b';
+  element.style.backgroundColor = '#ffffff';
+  element.style.width = '800px';
   element.style.fontFamily = 'system-ui, sans-serif';
   element.style.fontSize = '12px';
   element.style.lineHeight = '1.4';
@@ -452,10 +453,6 @@ export function generatePDFBlob(proj) {
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
 
-  // Trigger pdf blob with body append to ensure correct rendering coordinates
-  document.body.appendChild(element);
-  return html2pdf().set(opt).from(element).outputPdf('blob').then((blob) => {
-    element.remove();
-    return blob;
-  });
+  // Trigger pdf blob (rendering in-memory avoids layout conflicts)
+  return html2pdf().set(opt).from(element).outputPdf('blob');
 }
