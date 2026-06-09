@@ -279,12 +279,15 @@ export function generatePDF(proj) {
     margin: 10,
     filename: `${proj.companyName.replace(/\s+/g, '_')}_DiscoveryPacket.pdf`,
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true },
+    html2canvas: { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
 
-  // Trigger pdf save
-  return html2pdf().set(opt).from(element).save();
+  // Trigger pdf save with body append to ensure correct rendering coordinates
+  document.body.appendChild(element);
+  return html2pdf().set(opt).from(element).save().then(() => {
+    element.remove();
+  });
 }
 
 export function generatePDFBlob(proj) {
@@ -445,9 +448,14 @@ export function generatePDFBlob(proj) {
     margin: 10,
     filename: `${proj.companyName.replace(/\s+/g, '_')}_DiscoveryPacket.pdf`,
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 1.5 },
+    html2canvas: { scale: 1.5, scrollX: 0, scrollY: 0 },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
 
-  return html2pdf().set(opt).from(element).outputPdf('blob');
+  // Trigger pdf blob with body append to ensure correct rendering coordinates
+  document.body.appendChild(element);
+  return html2pdf().set(opt).from(element).outputPdf('blob').then((blob) => {
+    element.remove();
+    return blob;
+  });
 }
