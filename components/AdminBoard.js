@@ -1,4 +1,4 @@
-// AdminBoard.js - Kanban Board and Statistics Component for AYETEA Workspace
+// AdminBoard.js - Kanban Board and Statistics Component for Shai's Dumb Ideas Inc Workspace
 
 import { Database } from '../data.js';
 

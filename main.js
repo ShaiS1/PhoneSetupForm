@@ -139,16 +139,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const clientEmail = proj.contactEmail;
     if (!clientEmail) return;
 
-    const emailSubject = `AYETEA Phone Deployment Status Update - ${proj.companyName}`;
+    const emailSubject = `Shai's Dumb Ideas Inc Phone Deployment Status Update - ${proj.companyName}`;
     const latestComment = proj.comments.length > 0 ? proj.comments[proj.comments.length - 1].text : '';
     
     const emailBody = `
       <p>Hi <strong>${proj.contactName}</strong>,</p>
-      <p>This is an automated update from AYETEA regarding your business phone system setup.</p>
+      <p>This is an automated update from Shai's Dumb Ideas Inc regarding your business phone system setup.</p>
       <p>Your deployment status has been updated to: <strong style="color:#7c3aed;">${newStatus}</strong>.</p>
       ${latestComment ? `<p><strong>Latest Admin Update:</strong> "${latestComment}"</p>` : ''}
       <p>We will contact you if we need any further carrier details for Ooma configuration. No action is required from you at this time.</p>
-      <p>Best regards,<br><strong>AYETEA Deployments Team</strong></p>
+      <p>Best regards,<br><strong>Shai's Dumb Ideas Inc Deployments Team</strong></p>
     `;
 
     // Try sending API post in production environment
@@ -218,12 +218,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Generate & download the PDF report automatically for the client's records
     generatePDF(newRecord);
 
-    // 2. Prepare AYETEA admin notification parameters
+    // 2. Prepare Shai's Dumb Ideas Inc admin notification parameters
     const settings = Database.getSettings();
     const adminEmail = settings.configEmail;
     const emailSubject = `New Phone System Discovery Intake - ${newRecord.companyName}`;
     const emailBody = `
-      <p>Hello AYETEA Admin,</p>
+      <p>Hello Shai's Dumb Ideas Inc Admin,</p>
       <p>A new phone system discovery worksheet has been submitted by <strong>${newRecord.companyName}</strong>.</p>
       <p><strong>Primary Contact:</strong> ${newRecord.contactName} (${newRecord.contactPhone})</p>
       <p><strong>Email Address:</strong> ${newRecord.contactEmail}</p>
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <p><strong>Main Number:</strong> ${newRecord.mainNumber || 'None'}</p>
       <p><strong>Additional Numbers:</strong> ${Array.isArray(newRecord.additionalNumbers) ? (newRecord.additionalNumbers.join(', ') || 'None') : (newRecord.additionalNumbers || 'None')}</p>
       <p>The PDF summary report has been automatically generated and is attached to this notification.</p>
-      <p>To configure extensions and view device lists, open the AYETEA Deployment Workspace.</p>
+      <p>To configure extensions and view device lists, open the Shai's Dumb Ideas Inc Deployment Workspace.</p>
     `;
 
     // 3. Convert generated PDF to Base64 and send (or simulate locally)
@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subject: emailSubject,
             html: emailBody,
             pdfBase64: base64data,
-            pdfFilename: `ayetea_discovery_${newRecord.companyName.toLowerCase().replace(/\s+/g, '_')}.pdf`
+            pdfFilename: `shais_dumb_ideas_discovery_${newRecord.companyName.toLowerCase().replace(/\s+/g, '_')}.pdf`
           })
         })
         .then(res => {
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
             type: 'intake',
             to: adminEmail,
             subject: emailSubject,
-            filename: `ayetea_discovery_${newRecord.companyName.toLowerCase().replace(/\s+/g, '_')}.pdf`,
+            filename: `shais_dumb_ideas_discovery_${newRecord.companyName.toLowerCase().replace(/\s+/g, '_')}.pdf`,
             body: emailBody
           });
         });
@@ -349,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    window.showToast('AYETEA Phone Portal loaded successfully', 'info');
+    window.showToast("Shai's Dumb Ideas Inc Phone Portal loaded successfully", 'info');
   }
 
   // Kickstart

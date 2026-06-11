@@ -333,7 +333,7 @@ export function initClientForm(containerId, onSubmitSuccess) {
                   </label>
                   <label class="radio-card ${formData.hours.afterHoursRouting === 'unsure' ? 'selected' : ''}">
                     <input type="radio" name="afterHoursRouting" value="unsure" ${formData.hours.afterHoursRouting === 'unsure' ? 'checked' : ''}>
-                    <span>Unsure (Review with AYETEA)</span>
+                    <span>Unsure (Review with Shai's Dumb Ideas Inc)</span>
                   </label>
                 </div>
               </div>
@@ -354,7 +354,7 @@ export function initClientForm(containerId, onSubmitSuccess) {
             
             <div class="form-group">
               <label>Preferred Greeting Message (Text-to-speech or recorded later)</label>
-              <textarea id="greeting" rows="2" placeholder="e.g. Thank you for calling AYETEA. For sales, press 1. For support, press 2. For an extension, dial it now.">${formData.callFlow.greeting}</textarea>
+              <textarea id="greeting" rows="2" placeholder="e.g. Thank you for calling Shai's Dumb Ideas Inc. For sales, press 1. For support, press 2. For an extension, dial it now.">${formData.callFlow.greeting}</textarea>
             </div>
             
             <div class="form-grid-2">
@@ -379,9 +379,9 @@ export function initClientForm(containerId, onSubmitSuccess) {
                 <input type="text" id="press5" value="${formData.callFlow.press5}">
               </div>
               <div class="form-group">
-                <label>Press 9 should go to AYETEA Support? (Emergency route)</label>
-                <select id="press9">
-                  <option value="yes" ${formData.callFlow.press9 === 'yes' ? 'selected' : ''}>Yes, enable route to AYETEA</option>
+                 <label>Press 9 should go to Shai's Dumb Ideas Inc Support? (Emergency route)</label>
+                 <select id="press9">
+                   <option value="yes" ${formData.callFlow.press9 === 'yes' ? 'selected' : ''}>Yes, enable route to Shai's Dumb Ideas Inc</option>
                   <option value="no" ${formData.callFlow.press9 === 'no' ? 'selected' : ''}>No, disabled</option>
                 </select>
               </div>
@@ -403,7 +403,7 @@ export function initClientForm(containerId, onSubmitSuccess) {
               </div>
             </div>
             <div style="font-size:0.75rem; color: var(--text-muted); margin-top:1rem; border-top:1px solid var(--border-light); padding-top:0.5rem;">
-              <i class="ri-lightbulb-line"></i> AYETEA will review these selections and adjust the final flow if needed for Ooma compatibility.
+              <i class="ri-lightbulb-line"></i> Shai's Dumb Ideas Inc will review these selections and adjust the final flow if needed for Ooma compatibility.
             </div>
           </div>
 
@@ -520,7 +520,7 @@ export function initClientForm(containerId, onSubmitSuccess) {
                 <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top:0.5rem;">
                   <label class="checkbox-card" id="lbl-confirm-1">
                     <input type="checkbox" id="confirm-1" required>
-                    <span>I understand AYETEA will review this information before configuration.</span>
+                    <span>I understand Shai's Dumb Ideas Inc will review this information before configuration.</span>
                   </label>
                   <label class="checkbox-card" id="lbl-confirm-2">
                     <input type="checkbox" id="confirm-2" required>

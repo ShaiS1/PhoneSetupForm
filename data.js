@@ -1,4 +1,4 @@
-// State management and LocalStorage API for AYETEA Phone Discovery App
+// State management and LocalStorage API for Shai's Dumb Ideas Inc Phone Discovery App
 
 const LOCAL_STORAGE_KEY = 'ayetea_phone_discovery_submissions';
 
@@ -67,7 +67,7 @@ const seedSubmissions = [
     status: 'Discovery Received', // Stages: Discovery Received, Porting Submitted, Configuration Started, Testing, Go-Live Ready
     priority: 'Low',
     comments: [
-      { id: 'c-1', author: 'AYETEA System', text: 'Discovery form submitted successfully by customer John Apex.', timestamp: '2026-06-05T10:14:00-07:00' }
+      { id: 'c-1', author: "Shai's Dumb Ideas Inc System", text: 'Discovery form submitted successfully by customer John Apex.', timestamp: '2026-06-05T10:14:00-07:00' }
     ],
     activities: [
       { text: 'Form submitted by client', timestamp: '2026-06-05T10:14:00-07:00' },
@@ -141,7 +141,7 @@ const seedSubmissions = [
     status: 'Configuration Started',
     priority: 'Medium',
     comments: [
-      { id: 'c-1', author: 'AYETEA System', text: 'Form submitted.', timestamp: '2026-06-04T14:30:00-07:00' },
+      { id: 'c-1', author: "Shai's Dumb Ideas Inc System", text: 'Form submitted.', timestamp: '2026-06-04T14:30:00-07:00' },
       { id: 'c-2', author: 'Shais (Admin)', text: 'Porting paperwork looks correct. Transferred Verizon bill to porting subfolder.', timestamp: '2026-06-05T09:00:00-07:00' },
       { id: 'c-3', author: 'Shais (Admin)', text: 'Configuring Ooma office queues. Alice requested a custom greeting music; waiting for upload.', timestamp: '2026-06-05T11:45:00-07:00' }
     ],
@@ -216,7 +216,7 @@ const seedSubmissions = [
     status: 'Testing',
     priority: 'High',
     comments: [
-      { id: 'c-1', author: 'AYETEA System', text: 'Form submitted.', timestamp: '2026-06-02T11:20:00-07:00' },
+      { id: 'c-1', author: "Shai's Dumb Ideas Inc System", text: 'Form submitted.', timestamp: '2026-06-02T11:20:00-07:00' },
       { id: 'c-2', author: 'Shais (Admin)', text: 'Called Sarah to clarify AT&T bill. She confirmed it is AT&T. Number porting submitted manually.', timestamp: '2026-06-03T10:00:00-07:00' },
       { id: 'c-3', author: 'Shais (Admin)', text: 'Ooma hardware shipped. Tracking number: 1Z9999999999999999. Setting up user portal.', timestamp: '2026-06-04T15:00:00-07:00' }
     ],
@@ -230,7 +230,7 @@ const seedSubmissions = [
 
 const SETTINGS_KEY = 'ayetea_phone_discovery_settings';
 const defaultSettings = {
-  configEmail: 'support@aye-tea.com',
+  configEmail: 'support@dumbideas.com',
   mainReceptionist: '1000',
   mainQueue: '1001',
   conferenceServer: '1002',
@@ -284,7 +284,7 @@ export const Database = {
         portComplete: false
       },
       comments: [
-        { id: 'c-' + Date.now(), author: 'AYETEA System', text: 'Discovery form submitted successfully.', timestamp: new Date().toISOString() }
+        { id: 'c-' + Date.now(), author: "Shai's Dumb Ideas Inc System", text: 'Discovery form submitted successfully.', timestamp: new Date().toISOString() }
       ],
       activities: [
         { text: 'Form submitted by client', timestamp: new Date().toISOString() }

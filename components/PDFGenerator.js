@@ -79,7 +79,7 @@ export function generatePDF(proj) {
   if (proj.callFlow.press3) ivrOptions.push({ key: '3', dest: proj.callFlow.press3 });
   if (proj.callFlow.press4) ivrOptions.push({ key: '4', dest: proj.callFlow.press4 });
   if (proj.callFlow.press5) ivrOptions.push({ key: '5', dest: proj.callFlow.press5 });
-  if (proj.callFlow.press9 === 'yes') ivrOptions.push({ key: '9', dest: 'AYETEA Priority Support Line' });
+  if (proj.callFlow.press9 === 'yes') ivrOptions.push({ key: '9', dest: "Shai's Dumb Ideas Inc Priority Support Line" });
 
   // Additional numbers
   const addlNumbers = Array.isArray(proj.additionalNumbers) 
@@ -90,7 +90,7 @@ export function generatePDF(proj) {
     <!-- Header -->
     <div style="border-bottom: 3px solid #8b5cf6; padding-bottom: 15px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: flex-end;">
       <div>
-        <h1 style="margin: 0; font-size: 26px; color: #7c3aed; font-weight: 800; letter-spacing: 0.5px;">AYETEA</h1>
+        <h1 style="margin: 0; font-size: 26px; color: #7c3aed; font-weight: 800; letter-spacing: 0.5px;">Shai's Dumb Ideas Inc</h1>
         <div style="font-size: 10px; text-transform: uppercase; color: #6b7280; font-weight: 700; letter-spacing: 1px; margin-top: 2px;">Phone System Discovery Summary</div>
       </div>
       <div style="text-align: right;">
@@ -187,7 +187,7 @@ export function generatePDF(proj) {
           </tr>
           <tr style="background-color: #f8fafc; border-bottom: 1px solid #cbd5e1;">
             <td style="padding: 6px 8px; font-weight: 700; color: #7c3aed;">${parseInt(settings.ayeteaSupport || 6666, 10)}</td>
-            <td style="padding: 6px 8px; font-weight: 600;">AYETEA Support</td>
+            <td style="padding: 6px 8px; font-weight: 600;">Shai's Dumb Ideas Inc Support</td>
             <td style="padding: 6px 8px;">-</td>
             <td style="padding: 6px 8px; color: #475569;">Support Route</td>
           </tr>
@@ -272,8 +272,8 @@ export function generatePDF(proj) {
 
     <!-- Footer -->
     <div style="text-align: center; margin-top: 35px; font-size: 10px; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 15px;">
-      This worksheet was generated automatically on behalf of AYETEA. <br>
-      Please contact <strong>support@aye-tea.com</strong> for questions or changes.
+      This worksheet was generated automatically on behalf of Shai's Dumb Ideas Inc. <br>
+      Please contact <strong>support@dumbideas.com</strong> for questions or changes.
     </div>
   `;
 
@@ -358,7 +358,7 @@ export function generatePDFBlob(proj) {
   if (proj.callFlow.press3) ivrOptions.push({ key: '3', dest: proj.callFlow.press3 });
   if (proj.callFlow.press4) ivrOptions.push({ key: '4', dest: proj.callFlow.press4 });
   if (proj.callFlow.press5) ivrOptions.push({ key: '5', dest: proj.callFlow.press5 });
-  if (proj.callFlow.press9 === 'yes') ivrOptions.push({ key: '9', dest: 'AYETEA Support Line' });
+  if (proj.callFlow.press9 === 'yes') ivrOptions.push({ key: '9', dest: "Shai's Dumb Ideas Inc Support Line" });
 
   const addlNumbers = Array.isArray(proj.additionalNumbers) 
     ? (proj.additionalNumbers.join(', ') || 'None') 
@@ -366,7 +366,7 @@ export function generatePDFBlob(proj) {
 
   element.innerHTML = `
     <div style="border-bottom: 3px solid #7c3aed; padding-bottom: 15px; margin-bottom: 25px;">
-      <h1 style="margin: 0; font-size: 22px; color: #7c3aed;">AYETEA</h1>
+      <h1 style="margin: 0; font-size: 22px; color: #7c3aed;">Shai's Dumb Ideas Inc</h1>
       <div style="font-size: 10px; text-transform: uppercase; color: #6b7280;">Phone System Intake Worksheet</div>
     </div>
     <div style="margin-bottom: 15px;">
@@ -416,7 +416,7 @@ export function generatePDFBlob(proj) {
           </tr>
           <tr style="border-bottom: 1px solid #ddd; background-color: #fafafa;">
             <td style="padding: 4px 5px; font-weight: bold; color: #7c3aed;">${parseInt(settings.ayeteaSupport || 6666, 10)}</td>
-            <td style="padding: 4px 5px; font-weight: bold;">AYETEA Support</td>
+            <td style="padding: 4px 5px; font-weight: bold;">Shai's Dumb Ideas Inc Support</td>
             <td style="padding: 4px 5px;">-</td>
             <td style="padding: 4px 5px;">Support Route</td>
           </tr>

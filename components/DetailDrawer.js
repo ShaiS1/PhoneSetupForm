@@ -128,7 +128,7 @@ export function initDetailDrawer(drawerId, onDataModified) {
         <div class="detail-section-card full-width" style="display:flex; justify-content:space-between; align-items:center; gap:2rem; background:linear-gradient(135deg, rgba(6, 182, 212, 0.05), rgba(139, 92, 246, 0.05)); border-color:var(--border-focus);">
           <div style="flex:1;">
             <h3 style="margin-bottom:0.5rem;"><i class="ri-shield-flash-line"></i> Project Deployment Readiness</h3>
-            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:0.75rem;">This score indicates whether AYETEA has all required client information to proceed with Ooma deployment configuration.</p>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:0.75rem;">This score indicates whether Shai's Dumb Ideas Inc has all required client information to proceed with Ooma deployment configuration.</p>
             
             <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:0.5rem; font-size:0.8rem;">
               <div style="color:${readiness.items.bill ? 'var(--color-golive)' : 'var(--text-muted)'}">
@@ -369,7 +369,7 @@ export function initDetailDrawer(drawerId, onDataModified) {
     if (proj.callFlow.press3) ivrOptions.push({ key: '3', destination: proj.callFlow.press3 });
     if (proj.callFlow.press4) ivrOptions.push({ key: '4', destination: proj.callFlow.press4 });
     if (proj.callFlow.press5) ivrOptions.push({ key: '5', destination: proj.callFlow.press5 });
-    if (proj.callFlow.press9 === 'yes') ivrOptions.push({ key: '9', destination: 'AYETEA Priority Support Line' });
+    if (proj.callFlow.press9 === 'yes') ivrOptions.push({ key: '9', destination: "Shai's Dumb Ideas Inc Priority Support Line" });
 
     return `
       <div class="ooma-panel">
@@ -427,7 +427,7 @@ export function initDetailDrawer(drawerId, onDataModified) {
               </tr>
               <tr style="border-left: 3px solid var(--primary); background:rgba(139, 92, 246, 0.02)">
                 <td><strong style="color:var(--primary)">${parseInt(settings.ayeteaSupport || 6666, 10)}</strong></td>
-                <td><strong>AYETEA Support</strong></td>
+                <td><strong>Shai's Dumb Ideas Inc Support</strong></td>
                 <td>-</td>
                 <td>Support Route</td>
               </tr>

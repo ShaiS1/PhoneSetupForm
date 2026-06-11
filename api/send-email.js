@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
   try {
     const payload = {
-      from: 'AYETEA Phone Discovery <onboarding@resend.dev>',
+      from: "Shai's Dumb Ideas Inc Phone Discovery <onboarding@resend.dev>",
       to: [to],
       subject: subject,
       html: html,

@@ -7,7 +7,7 @@ export function generateWorkbook(proj) {
   
   // Sheet 1: Company Profile
   const companyData = [
-    ['AYETEA Ooma Deployment Intake Summary', ''],
+    ["Shai's Dumb Ideas Inc Ooma Deployment Intake Summary", ''],
     ['Generated On', new Date().toLocaleString()],
     ['', ''],
     ['Company Name', proj.companyName],
@@ -59,7 +59,7 @@ export function generateWorkbook(proj) {
     [parseInt(settings.mainQueue || 1001, 10), 'Main Queue', '', '', '', 'Call Queue', 'System Extension'],
     [parseInt(settings.conferenceServer || 1002, 10), 'Conference Bridge', '', '', '', 'Conference Server', 'System Extension'],
     [parseInt(settings.sharedVoicemail || 1003, 10), 'Shared Voicemail', '', '', '', 'Voicemail Server', 'System Extension'],
-    [parseInt(settings.ayeteaSupport || 6666, 10), 'AYETEA Support Line', '', '', '', 'External Routing', 'System Extension'],
+    [parseInt(settings.ayeteaSupport || 6666, 10), "Shai's Dumb Ideas Inc Support Line", '', '', '', 'External Routing', 'System Extension'],
     ['', '', '', '', '', '', ''],
     ['User Extensions:', '', '', '', '', '', ''],
     extHeaders
@@ -117,7 +117,7 @@ export function generateWorkbook(proj) {
   if (proj.callFlow.press3) ivrOptions.push(['Key 3 Destination', proj.callFlow.press3]);
   if (proj.callFlow.press4) ivrOptions.push(['Key 4 Destination', proj.callFlow.press4]);
   if (proj.callFlow.press5) ivrOptions.push(['Key 5 Destination', proj.callFlow.press5]);
-  if (proj.callFlow.press9 === 'yes') ivrOptions.push(['Key 9 Destination', 'AYETEA Priority Support Line']);
+  if (proj.callFlow.press9 === 'yes') ivrOptions.push(['Key 9 Destination', "Shai's Dumb Ideas Inc Priority Support Line"]);
   
   const callFlowData = [
     ['Ooma Auto-Receptionist Call Flow Mapping', ''],
@@ -138,7 +138,7 @@ export function generateWorkbook(proj) {
   };
   
   const checklistData = [
-    ['AYETEA VoIP Deployment Milestone Checklist', ''],
+    ["Shai's Dumb Ideas Inc VoIP Deployment Milestone Checklist", ''],
     ['Carrier Identified', checklist.carrierIdentified ? 'COMPLETED' : 'PENDING'],
     ['Phone Bill Statement Received', checklist.billReceived ? 'COMPLETED' : 'PENDING'],
     ['CSR Document Received', checklist.csrReceived ? 'COMPLETED' : 'PENDING'],
